@@ -1,0 +1,23 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-*: initial;
+
+  --color-white: #ffffff;
+  --color-gray-100: #f7f2f6;
+  --color-gray-200: #f4e6f0;
+  --color-gray-300: #7a6e76;
+  --color-gray-400: #332e32;
+
+  --color-primary-light: #cddfcc;
+  --color-primary-base: #52a350;
+  --color-primary-dark: #2f5c2d;
+
+  --color-secondary-light: #e9cce1;
+  --color-secondary-base: #c257a4;
+  --color-secondary-dark: #884074;
+
+  --shadow-sm: 0px 4px 8px 0px rgba(54, 23, 45, 0.05)
+  
+  --font-sans: "Raleway", sans-serif;
+}
