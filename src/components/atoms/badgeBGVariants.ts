@@ -9,10 +9,11 @@ export const badgeBGVariants = cva("inline-flex items-center justify-center roun
             size: {
                   sm: "py-0.5 px-2"
             },
-            defaultVariants: {
-                  variant: "primary",
-                  size: "sm",
-            }
+      },
+      defaultVariants: {
+            variant: "primary",
+            size: "sm",
+
       }
 
 })
