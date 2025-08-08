@@ -1,9 +1,8 @@
-// Importa a função cva que ajuda a criar estilos com variantes
 import { cva } from "class-variance-authority";
 
 // Define estilos reutilizáveis para textos
+// Pacote class-variance-authority serve para gerar strings de classes CSS dinamicamente
 export const textVariants = cva("font-sans text-gray-400", {
-  // Aqui definimos os "modos" (ou tipos) que o texto pode ter
       variants: {
             variant: {
                   "body-sm-bold": "text-sm leading-5 font-semibold",
