@@ -7,9 +7,11 @@ interface ButtonProps extends Omit<React.ComponentProps<"button">, "size" | "dis
       VariantProps<typeof buttonVariants> { } // Adiciona os variants definidos no botão
 
 export default function Button({ variant, size, disabled, className, children, ...props }: ButtonProps) {
-      <button className={buttonVariants({ variant, size, disabled, className })} {...props}>
-            <Text variant="body-md-bold">
-                  {children}
-            </Text>
-      </button>
+      return (
+            <button className={buttonVariants({ variant, size, disabled, className })} {...props}>
+                  <Text variant="body-md-bold">
+                        {children}
+                  </Text>
+            </button>
+      );
 }
