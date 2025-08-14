@@ -1,6 +1,6 @@
 import { type VariantProps } from "class-variance-authority"
 import { createElement } from "react";
-import { cardVariants } from "./CardVariants";
+import { cardVariants } from "./cardVariants";
 
 
 interface CardProps extends VariantProps<typeof cardVariants>,

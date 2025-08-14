@@ -1,8 +1,8 @@
 import { type VariantProps } from 'class-variance-authority';
 import { FaCheck } from "react-icons/fa";
-import { inputCheckboxWrapperVariants } from './InputCheckboxWrapperVariants';
-import { inputCheckboxVariants } from './InputCheckboxVariants';
-import { inputCheckboxIconVariants } from './InputCheckboxIconVariants';
+import { inputCheckboxWrapperVariants } from './inputCheckboxWrapperVariants';
+import { inputCheckboxVariants } from './inputCheckboxVariants';
+import { inputCheckboxIconVariants } from './inputCheckboxIconVariants';
 
 interface InputCheckboxProps extends VariantProps<typeof inputCheckboxVariants>,
 Omit<React.ComponentProps<"input">, "size" | "disabled">{}

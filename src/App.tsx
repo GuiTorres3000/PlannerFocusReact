@@ -3,6 +3,7 @@ import Button from "./components/atoms/Button/Button";
 import Container from "./components/atoms/Container/Container";
 import InputCheckbox from "./components/atoms/InputCheckbox/InputCheckbox";
 import InputText from "./components/atoms/InputText/InputText";
+import Skeleton from "./components/atoms/Skeleton/Skeleton";
 import Text from "./components/atoms/Text/Text";
 
 export default function App() {
@@ -18,6 +19,11 @@ export default function App() {
         <InputText />
         <div>
           <InputCheckbox />
+        </div>
+        <div className="space-y-6">
+        <Skeleton className="h-10"/>
+        <Skeleton className="h-2"/>
+        <Skeleton className="h-6"/>
         </div>
       </div>
     </div>
