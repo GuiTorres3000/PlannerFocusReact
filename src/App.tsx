@@ -13,8 +13,12 @@ export default function App() {
     <div className="grid gap-3">
       <Text>eaeawe</Text>
       <div>
+        <div className="my-20 flex gap-1">
         <Badge variant="primary" size="sm">2 de 5</Badge>
+        <Badge loading></Badge>
         <Badge variant="secondary">2 de 5</Badge>
+        
+        </div>
         <Button variant="primary">botao legal</Button>
         <InputText />
         <div>
