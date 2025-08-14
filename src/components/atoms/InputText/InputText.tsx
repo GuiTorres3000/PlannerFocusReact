@@ -1,6 +1,6 @@
 import { cx, type VariantProps } from "class-variance-authority";
 import { inputTextVariants } from "./InputTextVariants";
-import { textVariants } from "./textVariants";
+import { textVariants } from "../Text/textVariants";
 
 // Define as props que o componente Text pode receber
 interface InputTextProps extends VariantProps<typeof inputTextVariants>,

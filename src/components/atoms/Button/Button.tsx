@@ -1,6 +1,6 @@
 import { type VariantProps } from "class-variance-authority";
 import { buttonVariants } from "./buttonVariants";
-import Text from "./Text";
+import Text from "../Text/Text";
 
 // Usa todas as props padrões de <button>, exceto "size" e "disabled"
 interface ButtonProps extends Omit<React.ComponentProps<"button">, "size" | "disabled">,
