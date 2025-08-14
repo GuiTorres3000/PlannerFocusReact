@@ -1,21 +1,21 @@
 import { type VariantProps } from "class-variance-authority"
 import { createElement } from "react";
-import { CardVariants } from "./CardVariants";
+import { cardVariants } from "./CardVariants";
 
 
-interface CardProps extends VariantProps<typeof CardVariants>,
-      React.ComponentProps<"div">{
-            as?: keyof React.JSX.IntrinsicElements;
-      }
+interface CardProps extends VariantProps<typeof cardVariants>,
+      React.ComponentProps<"div"> {
+      as?: keyof React.JSX.IntrinsicElements;
+}
 
 
-export default function Card({as = "div", size, children, className, ...props}: CardProps) {
-  return createElement(
-      as,
-      {
-            className: CardVariants({size, className}),
-            ...props
-      },
-      children,
-  )
+export default function Card({ as = "div", size, children, className, ...props }: CardProps) {
+      return createElement(
+            as,
+            {
+                  className: cardVariants({ size, className }),
+                  ...props
+            },
+            children,
+      )
 }
