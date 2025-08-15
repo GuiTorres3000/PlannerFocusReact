@@ -1,43 +1,18 @@
-import Badge from "./components/atoms/Badge/Badge";
-import Button from "./components/atoms/Button/Button";
-import Container from "./components/atoms/Container/Container";
-import InputCheckbox from "./components/atoms/InputCheckbox/InputCheckbox";
-import InputText from "./components/atoms/InputText/InputText";
-import Skeleton from "./components/atoms/Skeleton/Skeleton";
-import Text from "./components/atoms/Text/Text";
-import { FaAward } from "react-icons/fa";
-
+import { BrowserRouter, Route, Routes } from "react-router";
+import LayoutMain from "./pages/layoutMain";
+import PageComponents from "./pages/pageComponents";
+import HomePage from "./pages/HomePage";
 
 export default function App() {
 
   return (
-    <Container>
-      <div className="grid gap-3">
-        <Text>eaeawe</Text>
-        <div>
-          <div className="my-20 flex gap-1">
-            <Badge variant="primary" size="sm">2 de 5</Badge>
-            <Badge loading></Badge>
-            <Badge variant="secondary">2 de 5</Badge>
-
-          </div>
-          <div>
-            <Button variant="primary">botao legal</Button>
-            <Button variant="primary" loading>botao legal</Button>
-            <Button variant="icon" size="icon"><FaAward className="w-6 h-6" /></Button>
-            <InputText />
-          </div>
-          <div>
-            <InputCheckbox loading />
-            <InputCheckbox />
-          </div>
-          <div className="space-y-6">
-            <Skeleton className="h-10" />
-            <Skeleton className="h-2" />
-            <Skeleton className="h-6" />
-          </div>
-        </div>
-      </div>
-    </Container>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<LayoutMain />}>
+          <Route index element={<HomePage />} />
+          <Route path="/components" element={<PageComponents />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
