@@ -28,6 +28,7 @@ export default function App() {
             <InputText />
           </div>
           <div>
+            <InputCheckbox loading />
             <InputCheckbox />
           </div>
           <div className="space-y-6">
