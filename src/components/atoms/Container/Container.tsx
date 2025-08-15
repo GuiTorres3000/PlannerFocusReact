@@ -1,7 +1,6 @@
 import type { VariantProps } from "class-variance-authority";
 import { createElement } from "react";
-import { continerVariants } from "./ContainerVariants";
-
+import { continerVariants } from "./containerVariants";
 
 interface ContainerProps extends VariantProps<typeof continerVariants>,
       React.ComponentProps<"div"> {

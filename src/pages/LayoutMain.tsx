@@ -7,7 +7,7 @@ export default function LayoutMain() {
       return (
             <>
                   <Header />
-                  <Container as="main" className="mt-4 md:mt-8 bg-primary-light/30">
+                  <Container as="main" className="mt-4 md:mt-8">
                         <Outlet/>
                   </Container>
                   <Footer/>
