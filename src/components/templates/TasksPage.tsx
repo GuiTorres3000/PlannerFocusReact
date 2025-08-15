@@ -1,13 +1,13 @@
-import Text from "../components/atoms/Text/Text";
-import Badge from "../components/atoms/Badge/Badge";
-import Button from "../components/atoms/Button/Button";
-import Container from "../components/atoms/Container/Container";
-import InputCheckbox from "../components/atoms/InputCheckbox/InputCheckbox";
-import InputText from "../components/atoms/InputText/InputText";
-import Skeleton from "../components/atoms/Skeleton/Skeleton";
+import Text from "../atoms/Text/Text";
+import Badge from "../atoms/Badge/Badge";
+import Button from "../atoms/Button/Button";
+import Container from "../atoms/Container/Container";
+import InputCheckbox from "../atoms/InputCheckbox/InputCheckbox";
+import InputText from "../atoms/InputText/InputText";
+import Skeleton from "../atoms/Skeleton/Skeleton";
 import { FaAward } from "react-icons/fa";
 
-export default function PageComponents() {
+export default function TasksPage() {
 
       return (
             <Container>

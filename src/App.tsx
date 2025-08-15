@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router";
-import LayoutMain from "./pages/layoutMain";
-import PageComponents from "./pages/pageComponents";
-import HomePage from "./pages/HomePage";
+import LayoutMain from "./pages/LayoutMain";
+import TasksPage from "./components/templates/TasksPage";
+import HomePage from "./components/templates/HomePage";
 
 export default function App() {
 
@@ -10,7 +10,7 @@ export default function App() {
       <Routes>
         <Route element={<LayoutMain />}>
           <Route index element={<HomePage />} />
-          <Route path="/components" element={<PageComponents />} />
+          <Route path="/components" element={<TasksPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
