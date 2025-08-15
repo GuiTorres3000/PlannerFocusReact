@@ -4,10 +4,10 @@ import Text from "../atoms/Text/Text";
 
 export default function Header() {
       return (
-            <Container as="header" className="flex items-center mt-3 md:mt-20 bg-primary-light">
+            <Container as="header" className="flex items-center mt-3 md:mt-20 bg-primary-light py-2">
                   <Container as="div" className="flex items-center gap-6">
-                        <FaTasks />
-                        <Text as="h2" >Todo List</Text>
+                        <FaTasks className="text-xl"/>
+                        <Text as="h2" className="font-semibold text-xl">Todo List</Text>
                   </Container>
             </Container>
       )

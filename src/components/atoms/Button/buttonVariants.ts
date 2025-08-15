@@ -6,7 +6,9 @@ export const buttonVariants = cva(`flex items-center justify-center cursor-point
             variant: {
                   none: "",
                   primary: "bg-gray-200 hover:bg-secondary-light",
-                  icon: "bg-primary-base text-white hover:bg-primary-base/90 hover:text-white/75 aspect-square p-0 rounded-xl " +
+                  icon_primary: "bg-primary-base/50 text-white hover:bg-primary-base aspect-square p-0 rounded-xl " +
+                        "[&_svg]:text-white hover:[&_svg]:text-white/90 [&_svg]:fill-current [&_svg]:stroke-current",
+                  icon_secondary: "bg-secondary-base/50 text-white hover:bg-secondary-base aspect-square p-0 rounded-xl " +
                         "[&_svg]:text-white hover:[&_svg]:text-white/90 [&_svg]:fill-current [&_svg]:stroke-current",
             },
             size: {

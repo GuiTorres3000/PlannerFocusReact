@@ -1,4 +1,5 @@
 import Container from "../atoms/Container/Container";
+import TaskItem from "../molecules/TaskItem";
 import TaskSummary from "../molecules/TaskSummary";
 
 export default function TasksPage() {
@@ -7,6 +8,7 @@ export default function TasksPage() {
                   <Container as="header" className="flex items-center justify-between">
                         <TaskSummary />
                   </Container>
+                  <TaskItem />
             </Container>
       )
 }
