@@ -22,10 +22,19 @@ export default function TaskItem({ task }: TaskItemProps) {
       );
 
       const [taskTitle, setTaskTitle] = useState(task.title || "");
-      const { updateTask } = useTask();
+      const { updateTask, deleteTask } = useTask();
 
       function handleEditModeTask() {
+            if(isEditing){
+                  if(task.state === "creating") return deleteTask(task.id);
+            }
             setIsEditing(!isEditing)
+      }
+
+      function handleSaveTask(e: React.FormEvent<HTMLDivElement>) {
+            e.preventDefault(); // Não sair da página
+            updateTask(task.id, { title: taskTitle, state: "created" })
+            setIsEditing(false);
       }
 
       function handleChangeTaskTitle(e: React.ChangeEvent<HTMLInputElement>) {
@@ -37,13 +46,10 @@ export default function TaskItem({ task }: TaskItemProps) {
             updateTask(task.id, { concluded: checked })
 
       }
-
-
-      function handleSaveTask(e: React.FormEvent<HTMLDivElement>) {
-            e.preventDefault(); // Não sair da página
-            updateTask(task.id, { title: taskTitle, state: "created" })
-            setIsEditing(false);
+      function handleDeleteTask() {
+            deleteTask(task.id);     
       }
+
 
       return (
             <Card size="md">
@@ -65,7 +71,7 @@ export default function TaskItem({ task }: TaskItemProps) {
                                     onChange={handleChangeTaskStatus}/>
                                     <Text className={cx("flex-1", { "line-through": task?.concluded })}>{task?.title}</Text>
                                     <Container as="div" className="flex gap-1">
-                                          <Button variant="icon_secondary" size="icon"><FaTrash /></Button>
+                                          <Button variant="icon_secondary" size="icon" onClick={handleDeleteTask}><FaTrash /></Button>
                                           <Button variant="icon_primary" size="icon" onClick={handleEditModeTask}><FaPencilAlt /></Button>
                                     </Container>
                               </Container>
