@@ -12,9 +12,13 @@ export default function useTask() {
     }])
   }
 
-  function updateTask(id: string, payload: {title: Task["title"]}){
-    setTasks( tasks.map((task) => task.id === id ? {...task, state: "created", ...payload}: task))
-  }
+  function updateTask(id: string, payload: Partial<Task>) {
+  setTasks(
+    tasks.map((task) =>
+      task.id === id ? { ...task, ...payload } : task
+    )
+  );
+}
 
   return {
     prepareTask,

@@ -32,9 +32,16 @@ export default function TaskItem({ task }: TaskItemProps) {
             setTaskTitle(e.target.value || "");
       }
 
+      function handleChangeTaskStatus(e: React.ChangeEvent<HTMLInputElement>) {
+            const checked = e.target.checked;
+            updateTask(task.id, { concluded: checked })
+
+      }
+
+
       function handleSaveTask(e: React.FormEvent<HTMLDivElement>) {
             e.preventDefault(); // Não sair da página
-            updateTask(task.id, { title: taskTitle })
+            updateTask(task.id, { title: taskTitle, state: "created" })
             setIsEditing(false);
       }
 
@@ -54,7 +61,8 @@ export default function TaskItem({ task }: TaskItemProps) {
                         :
                         <>
                               <Container as="div" className="flex items-center gap-3">
-                                    <InputCheckbox value={task?.concluded?.toString()} checked={task?.concluded} />
+                                    <InputCheckbox checked={task?.concluded} 
+                                    onChange={handleChangeTaskStatus}/>
                                     <Text className={cx("flex-1", { "line-through": task?.concluded })}>{task?.title}</Text>
                                     <Container as="div" className="flex gap-1">
                                           <Button variant="icon_secondary" size="icon"><FaTrash /></Button>
