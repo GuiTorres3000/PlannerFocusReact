@@ -13,7 +13,7 @@ export const buttonVariants = cva(`flex items-center justify-center cursor-point
             },
             size: {
                   icon: "py-1.5 px-1.5",
-                  md: "h-14 py-4 px-4",
+                  md: "h-11 py-4 px-4",
             },
             disabled: {
                   true: "opacity-50 pointer-events-none"

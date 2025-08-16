@@ -1,6 +1,6 @@
 import Container from "../atoms/Container/Container";
-import TaskItem from "../molecules/TaskItem";
 import TaskSummary from "../molecules/TaskSummary";
+import TasksList from "../organisms/TasksList";
 
 export default function TasksPage() {
       return (
@@ -8,7 +8,7 @@ export default function TasksPage() {
                   <Container as="header" className="flex items-center justify-between">
                         <TaskSummary />
                   </Container>
-                  <TaskItem />
+                  <TasksList />
             </Container>
       )
 }

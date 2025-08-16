@@ -2,12 +2,13 @@ import { type VariantProps } from "class-variance-authority";
 import { buttonVariants } from "./buttonVariants";
 import Text from "../Text/Text";
 import Skeleton from "../Skeleton/Skeleton";
+import type { ReactNode } from "react";
 
 // Usa todas as props padrões de <button>, exceto "size" e "disabled"
 interface ButtonProps extends Omit<React.ComponentProps<"button">, "size" | "disabled">,
-      VariantProps<typeof buttonVariants> { loading?: boolean } // Adiciona os variants definidos no botão
+      VariantProps<typeof buttonVariants> { icon?: ReactNode, loading?: boolean } // Adiciona os variants definidos no botão
 
-export default function Button({ variant, size, disabled, className, children, loading, ...props }: ButtonProps) {
+export default function Button({ icon, variant, size, disabled, className, children, loading, ...props }: ButtonProps) {
       if (loading) {
             return (
                   <Skeleton className={buttonVariants({ variant:"none", size, className }) + " w-24 h-4 inline-flex cursor-default pointer-events-none"} />
@@ -15,6 +16,7 @@ export default function Button({ variant, size, disabled, className, children, l
       }
       return (
             <button className={buttonVariants({ variant, size, disabled, className })} {...props}>
+                  {icon && <span>{icon}</span>}
                   <Text variant="body-md-bold">
                         {children}
                   </Text>
