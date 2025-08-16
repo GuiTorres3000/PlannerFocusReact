@@ -5,7 +5,7 @@ export default function useTasks() {
       const [tasks] = useLocalStorage<Task[]>(TASKS_KEY, []);
       return {
             tasks,
-            tasksCount: tasks.length,
+            tasksCount: tasks.filter((task) => task.state === "created").length,
             concludedTasksCount: tasks.filter((task) => task.concluded).length
       }
 }
