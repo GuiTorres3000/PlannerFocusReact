@@ -11,7 +11,11 @@ interface ButtonProps extends Omit<React.ComponentProps<"button">, "size" | "dis
 export default function Button({ icon, variant, size, disabled, className, children, loading, ...props }: ButtonProps) {
       if (loading) {
             return (
-                  <Skeleton className={buttonVariants({ variant:"none", size, className }) + " w-24 h-4 inline-flex cursor-default pointer-events-none"} />
+                  <Skeleton
+            // herdando as mesmas variantes do botão
+            className={buttonVariants({ variant: "none", size, disabled, class: className})}
+            rounded="lg"
+            />
             );
       }
       return (

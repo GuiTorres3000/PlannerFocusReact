@@ -1,69 +1,41 @@
-# React + TypeScript + Vite
+## Todo Optimized for PlannerFocus — TodoList (CVA + Custom Hooks + Fake HTTP)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+O objetivo deste projeto foi criar uma arquitetura escalável com CVA (class-variance-authority) para variantes de UI de forma tipada e reutilizável (para evitar repetição de classes Tailwind.), com persistência em localStorage, hooks customizados e simulação de carregamento de HTTP com componentes Skeletons para estados de loading.
+Stacks: `React`, `TypeScript`, `Tailwind` e `Vite` com Atomic Design.
 
-Currently, two official plugins are available:
+![Demonstração do App](src/assets/todo-image.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Conceitos Aplicados
+React:
+- Componentes Primitivos (Text, Button, Input, Container, etc) Polimórficos personalizados (`as` prop).
+- Persistência de Dados para Tarefas via `localStorage` utilizando lib `use-local-storage`.
+- Simulação de HTTP com delay() para exibir Skeleton/loading.
+- Hooks customizados para manipulação de tarefas (useTask / useTasks encapsulando CRUD).
+- Navegação com `React Router` no modo declarativo (declarative mode).
 
-## Expanding the ESLint configuration
+TypeScript
+- Tipos fortes (com Schema) para Task
+- Props tipadas em componentes atômicos com variantes de UI usando CVA
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📏 Estrutura do Projeto
+```bash
+src/
+  components/
+    atoms/        # Button, Text, Container, Skeleton
+    molecules/    # TaskItem, TaskSummary
+    organisms/    # TaskList, Sections (Header&Footer)
+    templates/    # Layouts
+  domain/         # taskSchema (tipo e chave de storage)
+  hooks/          # useTask, useTasks
+  helpers/        # utils (delay)
+  pages/          # Layout Global
+  ```
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🚀 Como Executar o Projeto
+```bash
+# Instale as dependências
+npm install
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Rode o projeto em modo desenvolvimento
+npm run dev
 ```

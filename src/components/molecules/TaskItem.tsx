@@ -10,12 +10,14 @@ import InputText from "../atoms/InputText/InputText";
 import type { Task } from "../../domain/taskSchema";
 import { cx } from "class-variance-authority";
 import useTask from "../../hooks/useTask";
+import Skeleton from "../atoms/Skeleton/Skeleton";
 
 interface TaskItemProps {
+      loading?: boolean,
       task: Task;
 }
 
-export default function TaskItem({ task }: TaskItemProps) {
+export default function TaskItem({ loading, task }: TaskItemProps) {
 
       const [isEditing, setIsEditing] = useState(
             task?.state === "creating"
@@ -68,11 +70,14 @@ export default function TaskItem({ task }: TaskItemProps) {
                         <>
                               <Container as="div" className="flex items-center gap-3">
                                     <InputCheckbox checked={task?.concluded} 
-                                    onChange={handleChangeTaskStatus}/>
+                                    onChange={handleChangeTaskStatus} loading={loading}/>
+                                    {!loading ?
                                     <Text className={cx("flex-1", { "line-through": task?.concluded })}>{task?.title}</Text>
+                                    : 
+                                    <Skeleton className="w-full h-6"/>}
                                     <Container as="div" className="flex gap-1">
-                                          <Button variant="icon_secondary" size="icon" onClick={handleDeleteTask}><FaTrash /></Button>
-                                          <Button variant="icon_primary" size="icon" onClick={handleEditModeTask}><FaPencilAlt /></Button>
+                                          <Button variant="icon_secondary" size="icon" onClick={handleDeleteTask} loading={loading}><FaTrash /></Button>
+                                          <Button variant="icon_primary" size="icon" onClick={handleEditModeTask} loading={loading}><FaPencilAlt /></Button>
                                     </Container>
                               </Container>
                         </>

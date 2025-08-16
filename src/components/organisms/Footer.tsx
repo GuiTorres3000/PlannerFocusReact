@@ -7,10 +7,10 @@ export default function Footer() {
             <Container as="footer" className="my-5 md:my-10">
                   <nav className="flex items-center justify-center gap-4">
                         <NavLink to="/">
-                              <Text variant="body-sm-bold" className="text-secondary-base/80">Tarefas</Text>
+                              <Text variant="body-sm-bold" className="text-secondary-base/80">Página Principal</Text>
                         </NavLink>
-                        <NavLink to="/components">
-                              <Text variant="body-sm-bold" className="text-secondary-base/80">Components</Text>
+                        <NavLink to="/tasks">
+                              <Text variant="body-sm-bold" className="text-secondary-base/80">Tarefas</Text>
                         </NavLink>
                   </nav>
             </Container>

@@ -10,7 +10,7 @@ export default function App() {
       <Routes>
         <Route element={<LayoutMain />}>
           <Route index element={<HomePage />} />
-          <Route path="/components" element={<TasksPage />} />
+          <Route path="/tasks" element={<TasksPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

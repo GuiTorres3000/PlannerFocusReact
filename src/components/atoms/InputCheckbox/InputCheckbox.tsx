@@ -10,7 +10,7 @@ Omit<React.ComponentProps<"input">, "size" | "disabled"> {loading?: boolean}
 
 export default function InputCheckbox({variant, size, disabled, className, loading, ...props}: InputCheckboxProps) {
       if(loading){
-            return <Skeleton rounded="sm" className={inputCheckboxVariants({variant: "none", size, disabled})} />
+            return <Skeleton rounded="sm" className={inputCheckboxVariants({variant: "none", size, disabled, class: "h-5 w-6.5"})} />
       }
       return (
             <label className={inputCheckboxWrapperVariants({className})}>

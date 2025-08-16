@@ -5,9 +5,10 @@ import TaskItem from '../molecules/TaskItem'
 import Text from '../atoms/Text/Text'
 import useTask from '../../hooks/useTask'
 import useTasks from '../../hooks/useTasks'
+import type { Task } from '../../domain/taskSchema'
 
 export default function TasksList() {
-      const { tasks } = useTasks();
+      const { tasks, isLoadingTasks } = useTasks();
       const { prepareTask } = useTask();
       
       console.log(tasks);
@@ -20,13 +21,19 @@ export default function TasksList() {
             <>
                   <Container as="section">
                         <Button icon={<FaPlus className="text-secondary-base/75"/>} className="w-full" 
-                        onClick={handleNewTask} disabled={tasks.some((task) => task.state === "creating")}>
+                        onClick={handleNewTask} disabled={tasks.some((task) => task.state === "creating") || isLoadingTasks}>
                               <Text as='span'>Nova tarefa</Text>
                         </Button>
                   </Container>
+                  {!isLoadingTasks ?
                   <Container as="section" className="space-y-2">
                         {tasks.map((task) => <TaskItem task={task} key={task.id}/>)}
                   </Container>
+                  :
+                  <Container as="section" className="space-y-2">
+                        <TaskItem task={{} as Task} loading/>
+                  </Container>
+                  }
             </>
       )
 }
