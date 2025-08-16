@@ -3,8 +3,11 @@ import Button from '../atoms/Button/Button'
 import Container from '../atoms/Container/Container'
 import TaskItem from '../molecules/TaskItem'
 import Text from '../atoms/Text/Text'
+import useTasks from '../../hooks/useTasks'
 
 export default function TasksList() {
+      const { tasks } = useTasks();
+      
       return (
             <>
                   <Container as="section">
